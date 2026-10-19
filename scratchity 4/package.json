@@ -1,0 +1,9 @@
+{
+  "name": "scratchity",
+  "private": true,
+  "scripts": {
+    "build": "cp shared/* site/public/ && cp shared/* extension/",
+    "deploy": "npm run build && cd site && npx wrangler pages deploy",
+    "zip": "npm run build && cd extension && zip -r ../scratchity-extension.zip . -x '.*'"
+  }
+}

@@ -1,0 +1,20 @@
+# Cloudflare Pages project. The name becomes <name>.pages.dev if it's free.
+name = "scratchity"
+pages_build_output_dir = "./public"
+compatibility_date = "2025-09-01"
+
+# Workers AI runs Qwen2.5-Coder-32B-Instruct. No API key needed.
+[ai]
+binding = "AI"
+
+# Scratchity tokens and BananaCoins live in your BananaPeel wallet. Sign-in and tokens go through
+# the BananaPeel server. Cloudflare blocks one of your Workers from calling
+# another one by its workers.dev address, so this connects them directly. "service" is the
+# BananaPeel server's Worker name (the first part of bananapeel-server.<you>.workers.dev).
+[[services]]
+binding = "BANANAPEEL"
+service = "bananapeel-server"
+
+[vars]
+# Optional: your extension's ID from chrome://extensions, so only it can call the API
+EXTENSION_ID = ""
